@@ -1,0 +1,51 @@
+﻿@model ProjeKVT.Models.TableRank
+@{
+    ViewBag.Title = "TableValue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int a = @Model.AlternatifSayisi;
+    int d = @Model.DurumSayisi;
+}
+<div class="alert alert-success">
+    <strong>Bilgi!</strong> Lütfen Alternatif ve durumlarınıza ait değerleri giriniz...
+</div>
+<form method="post" action="Table" class="table table-bordered" >
+    <div >
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Alternatifler</th>
+                    @for (int i = 1; i <= d; i++)
+                    {
+                        <th>Durum @i</th>
+                    }
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < a; i++)
+                {
+                    <tr>
+                        <td>Alternatif @(i+1)</td>
+                        @for (int j = 0; j < d; j++)
+                        {
+                            
+                            <td><input type="text" name="@Html.Name("Durum"+i+""+j)" class="text text-body" placeholder="Değer giriniz..."/></td>
+
+                        }
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        @Html.Hidden("Alternatif", Model.AlternatifSayisi)
+                        @Html.Hidden("Durum", Model.DurumSayisi)
+                        <button type="submit" class="btn btn-success" style="width:100%">İleri</button>
+                    </td>
+                </tr>
+            </tbody>
+          
+        </table>
+    </div>
+   
+</form>
+
+

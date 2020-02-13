@@ -1,0 +1,25 @@
+﻿@model ProjeKVT.ViewModels.SonucViewModel
+@{
+    ViewBag.Title = "Sonuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<form  class="table table-bordered">
+    <div>
+        <table align="center">
+            <tbody>
+
+                <tr style="border:hidden">
+                    <td ><h2 class="modal-header" style="color:darkred">@Model.Results.Isim Kriteri</h2></td>
+                    @Html.Hidden("Sonuc", Model.SonucDetay.Sonuc)
+
+
+                </tr>
+                <tr style="border:hidden">
+                    <td ><h1>Karar:</h1><h3>@Model.SonucDetay.SonucSatir . Alternatif düzeyi @Model.Results.Isim kriterine göre en uygun alternatiftir...</h3>  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

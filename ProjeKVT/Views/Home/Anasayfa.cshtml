@@ -1,0 +1,50 @@
+﻿@model ProjeKVT.Models.TableRank
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-success">
+    <strong>Bilgi!</strong> Lütfen Alternatif ve durumlarınızın sayısını giriniz...
+</div>
+
+@using (Html.BeginForm("TableValue", "Table", FormMethod.Post,new {@class="table table bordered" }))
+{
+    <div class="form-group" >
+        <table align="center">
+            <tbody>
+                <tr>
+                    <td align="center" valign="top">
+                        @Html.LabelFor(m => m.AlternatifSayisi)
+                        @Html.TextBoxFor(m => m.AlternatifSayisi)
+
+                       
+                    </td>
+                  
+                </tr>
+                <tr>
+                    <td><br /></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="baseline">
+                        @Html.LabelFor(m => m.DurumSayisi)
+                        @Html.TextBoxFor(m => m.DurumSayisi)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class=" btn btn-success  " style="width:50%">İleri</button>
+                    </td>
+                </tr>
+            </tbody>
+          
+
+           
+        </table>
+
+    </div>
+
+    
+}
+
+

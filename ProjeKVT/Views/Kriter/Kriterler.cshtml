@@ -1,0 +1,97 @@
+﻿@using ProjeKVT.Models
+@model ProjeKVT.Models.IntermediateMatris
+@{
+    ViewBag.Title = "Kriterler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+
+}
+
+<div class="alert alert-success">
+    <strong>Bilgi!</strong> Lütfen Hesaplamak istediğiniz kritere tıklayınız...
+</div>
+
+<table align="center">
+    <tr>
+        <td rowspan=2>
+            <h1>Kriter Hesap Paneli</h1>
+            <table border="1" class="table table-bordered">
+                <tr>
+                    <td>
+                        <table align="left">
+                            <tbody>
+                                <tr>
+                                    <td><h5>İyimserlik Kriteri</h5></td>
+
+                                    <td>@Html.ActionLink("Hesapla", "Iyimserlik", "ResultValue", new { matris = Model.Birlestirilmismatris, rows = Model.RowLength }, new { @class = "btn btn-success" })</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td><h5>Kötümserlik Kriteri</h5></td>
+                                    <td>@Html.ActionLink("Hesapla", "Kotumserlik", "ResultValue", new { matris = Model.Birlestirilmismatris, rows = Model.RowLength }, new { @class = "btn btn-success" })</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h5>Pişmanlık Kriteri</h5></td>
+                                    <td>@Html.ActionLink("Hesapla", "Pismanlik", "ResultValue", new { matris = Model.Birlestirilmismatris, rows = Model.RowLength }, new { @class = "btn btn-success" })</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td><h5>Laplace Kriteri</h5></td>
+                                    <td>@Html.ActionLink("Hesapla", "Laplace", "ResultValue", new { matris = Model.Birlestirilmismatris, rows = Model.RowLength }, new { @class = "btn btn-success" })</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+
+                        <table align="right">
+                            <tbody>
+                                <tr>
+                                    <td><h5>Hurwics Kriteri</h5></td>
+                                  <td></td>
+                                  <td align="right">
+                                      @using (Html.BeginForm("Hurwics", "ResultValue", FormMethod.Post))
+                                      {
+                                          @Html.Hidden("matris", Model.Birlestirilmismatris)
+                                          @Html.Hidden("rows", Model.RowLength)
+                                          <label><h5>Alfa:</h5></label>
+                                          @Html.TextBox("textBoxAlfa")
+
+                                          <input type="submit" class="btn btn-success" value="Hesapla"/>
+                                      }
+                                  </td>
+                               </tr>
+           
+            </tbody>
+        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+
+</table>
+
+
